@@ -62,7 +62,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
     @Override
     @Transactional
     public GiftCertificateDto save(ReadGiftCertificateDto readGiftCertificateDto) {
-        existsBy(readGiftCertificateDto);
+        existsByName(readGiftCertificateDto);
         return giftCertificateMapper.toDto(giftCertificateRepository
                 .save(giftCertificateMapper.toEntity(readGiftCertificateDto,
                         tagService.createTagList(readGiftCertificateDto))));
@@ -71,7 +71,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
     @Override
     @Transactional
     public GiftCertificateDto update(ReadGiftCertificateDto readGiftCertificateDto, Long id) {
-        existsBy(readGiftCertificateDto);
+        existsByName(readGiftCertificateDto);
         GiftCertificate giftCertificateById = findGiftCertificateById(id);
         giftCertificateById.getTags().addAll(tagService.createTagList(readGiftCertificateDto));
         GiftCertificate giftCertificate = giftCertificateMapper
@@ -90,7 +90,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
                 .orElseThrow(() -> new EntityNotFoundException(GiftCertificate.class, id));
     }
 
-    private void existsBy(ReadGiftCertificateDto readGiftCertificateDto) {
+    private void existsByName(ReadGiftCertificateDto readGiftCertificateDto) {
         giftCertificateRepository.findByNameIgnoreCase(readGiftCertificateDto.getName())
                 .ifPresent(giftCertificate -> {
                     throw new EntityWithNameExistsException(GiftCertificate.class, readGiftCertificateDto.getName());

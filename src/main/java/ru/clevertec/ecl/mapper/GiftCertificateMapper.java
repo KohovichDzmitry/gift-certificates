@@ -13,12 +13,12 @@ import java.util.List;
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface GiftCertificateMapper {
 
-    @Mapping(target = "createDate", expression = "java(LocalDateTime.now().minusNanos(0))")
-    @Mapping(target = "lastUpdateDate", expression = "java(LocalDateTime.now().minusNanos(0))")
+    @Mapping(target = "createDate", expression = "java(LocalDateTime.now().withNano(0))")
+    @Mapping(target = "lastUpdateDate", expression = "java(LocalDateTime.now().withNano(0))")
     @Mapping(source = "tags", target = "tags")
     GiftCertificate toEntity(ReadGiftCertificateDto readGiftCertificateDto, List<Tag> tags);
 
-    @Mapping(target = "lastUpdateDate", expression = "java(LocalDateTime.now().minusNanos(0))")
+    @Mapping(target = "lastUpdateDate", expression = "java(LocalDateTime.now().withNano(0))")
     @Mapping(target = "tags", ignore = true)
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     GiftCertificate toUpdateEntity(ReadGiftCertificateDto readGiftCertificateDto,

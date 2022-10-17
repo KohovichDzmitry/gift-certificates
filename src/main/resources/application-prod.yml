@@ -1,3 +1,3 @@
 spring:
   liquibase:
-    change-log: changeset/create-tables-prod.sql
+    change-log: db.changelog/db.changelog-master-prod.yaml

@@ -11,6 +11,7 @@ import ru.clevertec.ecl.dto.ReadGiftCertificateDto;
 import ru.clevertec.ecl.service.GiftCertificateService;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class GiftCertificateController {
     }
 
     @GetMapping("/tag/{tagName}")
-    public ResponseEntity<List<GiftCertificateDto>> findAllByTagName(@PathVariable String tagName,
+    public ResponseEntity<List<GiftCertificateDto>> findAllByTagName(@NotBlank @PathVariable String tagName,
                                                                      Pageable pageable) {
         return ResponseEntity.ok(giftCertificateService.findAllByTagName(tagName, pageable));
     }

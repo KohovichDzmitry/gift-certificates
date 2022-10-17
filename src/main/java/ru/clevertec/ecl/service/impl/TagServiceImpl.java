@@ -58,6 +58,7 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    @Transactional
     public List<Tag> createTagList(ReadGiftCertificateDto readGiftCertificateDto) {
         return readGiftCertificateDto.getTags()
                 .stream()
