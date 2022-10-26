@@ -21,7 +21,7 @@ repositories {
 }
 
 ext.versions = [
-        'mapStruct': '1.5.2.Final',
+        'mapStruct': '1.5.3.Final',
         'testcontainers': '1.17.4'
 ]
 

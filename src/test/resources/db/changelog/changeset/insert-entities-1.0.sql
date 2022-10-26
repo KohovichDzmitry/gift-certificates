@@ -2,15 +2,15 @@
 
 -- changeset Kohovich Dmitry:1
 INSERT INTO gift_certificate (id, name, description, price, duration, create_date, last_update_date)
-VALUES (1, 'fitness', 'description', 115.15, 14, current_timestamp(0), current_timestamp(0));
+VALUES (1, 'fitness', 'description', 115.15, 14, current_timestamp(3), current_timestamp(3));
 INSERT INTO gift_certificate (id, name, description, price, duration, create_date, last_update_date)
-VALUES (2, 'sport', 'description', 75.75, 10, current_timestamp(0), current_timestamp(0));
+VALUES (2, 'sport', 'favorite description', 75.75, 10, current_timestamp(3), current_timestamp(3));
 INSERT INTO gift_certificate (id, name, description, price, duration, create_date, last_update_date)
-VALUES (3, 'travel', 'description', 102.05, 7, current_timestamp(0), current_timestamp(0));
+VALUES (3, 'travel', 'description', 102.05, 7, current_timestamp(3), current_timestamp(3));
 INSERT INTO gift_certificate (id, name, description, price, duration, create_date, last_update_date)
-VALUES (4, 'dinner', 'description', 55.55, 10, current_timestamp(0), current_timestamp(0));
+VALUES (4, 'dinner', 'description', 55.55, 10, current_timestamp(3), current_timestamp(3));
 INSERT INTO gift_certificate (id, name, description, price, duration, create_date, last_update_date)
-VALUES (5, 'painting', 'description', 77.65, 21, current_timestamp(0), current_timestamp(0));
+VALUES (5, 'painting', 'description', 77.65, 21, current_timestamp(3), current_timestamp(3));
 SELECT SETVAL('gift_certificate_id_seq', (SELECT MAX(id) FROM gift_certificate));
 
 -- changeset Kohovich Dmitry:2

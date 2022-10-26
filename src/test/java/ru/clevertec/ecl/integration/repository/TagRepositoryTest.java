@@ -12,7 +12,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static ru.clevertec.ecl.integration.dataForTest.TagForTest.*;
+import static ru.clevertec.ecl.dataForTest.TagForTest.*;
 
 @RequiredArgsConstructor
 public class TagRepositoryTest extends IntegrationTestBase {

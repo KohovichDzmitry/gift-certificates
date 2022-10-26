@@ -9,12 +9,12 @@ import ru.clevertec.ecl.integration.IntegrationTestBase;
 import ru.clevertec.ecl.repository.GiftCertificateRepository;
 import ru.clevertec.ecl.service.GiftCertificateService;
 
-import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static ru.clevertec.ecl.integration.dataForTest.GiftCertificateForTest.*;
+import static ru.clevertec.ecl.dataForTest.GiftCertificateForTest.*;
 
 @RequiredArgsConstructor
 public class GiftCertificateServiceImplTest extends IntegrationTestBase {
@@ -32,20 +32,20 @@ public class GiftCertificateServiceImplTest extends IntegrationTestBase {
     void findAllByPartOfNameTest() {
         List<GiftCertificateDto> actual = giftCertificateService
                 .findAllByPartOfNameOrDescription("nes", null, pageable());
-        assertEquals(Collections.singletonList(giftCertificateDto1()), actual);
+        assertEquals(singletonList(giftCertificateDto1()), actual);
     }
 
     @Test
     void findAllByPartOfDescriptionTest() {
         List<GiftCertificateDto> actual = giftCertificateService
-                .findAllByPartOfNameOrDescription(null, "desc", pageable());
-        assertEquals(giftCertificatesDto(), actual);
+                .findAllByPartOfNameOrDescription(null, "fav", pageable());
+        assertEquals(singletonList(giftCertificateDto2()), actual);
     }
 
     @Test
     void findAllByTagNameTest() {
         List<GiftCertificateDto> actual = giftCertificateService.findAllByTagName("summer", pageable());
-        assertEquals(Collections.singletonList(giftCertificateDto4()), actual);
+        assertEquals(singletonList(giftCertificateDto4()), actual);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class GiftCertificateServiceImplTest extends IntegrationTestBase {
     @Test
     void saveWithExistsNameTest() {
         assertThrows(EntityWithNameExistsException.class,
-                () -> giftCertificateService.save(readGiftCertificateDto()));
+                () -> giftCertificateService.save(readGiftCertificateDto1()));
     }
 
     @Test

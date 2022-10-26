@@ -7,17 +7,17 @@ import ru.clevertec.ecl.entity.GiftCertificate;
 import ru.clevertec.ecl.integration.IntegrationTestBase;
 import ru.clevertec.ecl.repository.GiftCertificateRepository;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static ru.clevertec.ecl.integration.dataForTest.GiftCertificateForTest.*;
+import static ru.clevertec.ecl.dataForTest.GiftCertificateForTest.*;
 
 @RequiredArgsConstructor
-public class CertificateRepositoryTest extends IntegrationTestBase {
+public class GiftCertificateRepositoryTest extends IntegrationTestBase {
 
     private final GiftCertificateRepository giftCertificateRepository;
 
@@ -34,7 +34,7 @@ public class CertificateRepositoryTest extends IntegrationTestBase {
                 .name("spo")
                 .build(), matcher());
         List<GiftCertificate> actual = giftCertificateRepository.findAll(example, pageable()).getContent();
-        assertEquals(Collections.singletonList(giftCertificate2()), actual);
+        assertEquals(singletonList(giftCertificate2()), actual);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class CertificateRepositoryTest extends IntegrationTestBase {
                 .name("in")
                 .build(), matcher());
         List<GiftCertificate> actual = giftCertificateRepository.findAll(example, pageable()).getContent();
-        assertEquals(Arrays.asList(giftCertificate4(), giftCertificate5()), actual);
+        assertEquals(asList(giftCertificate4(), giftCertificate5()), actual);
     }
 
     @Test
@@ -58,14 +58,14 @@ public class CertificateRepositoryTest extends IntegrationTestBase {
     @Test
     void findAllByTagNameTest() {
         List<GiftCertificate> actual = giftCertificateRepository.findAllByTagName("mood", pageable());
-        assertEquals(Arrays.asList(giftCertificate1(), giftCertificate2(),
+        assertEquals(asList(giftCertificate1(), giftCertificate2(),
                 giftCertificate3(), giftCertificate5()), actual);
     }
 
     @Test
     void findAllByTagNameTest2() {
         List<GiftCertificate> actual = giftCertificateRepository.findAllByTagName("nATurE", pageable());
-        assertEquals(Arrays.asList(giftCertificate3(), giftCertificate5()), actual);
+        assertEquals(asList(giftCertificate3(), giftCertificate5()), actual);
     }
 
     @Test

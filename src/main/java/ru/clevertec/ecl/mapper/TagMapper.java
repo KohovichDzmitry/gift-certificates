@@ -14,7 +14,7 @@ public interface TagMapper {
 
     Tag toEntity(ReadTagDto readTagDto);
 
-    Tag toUpdateEntity(ReadTagDto tagDto, @MappingTarget Tag tag);
+    Tag toUpdateEntity(ReadTagDto readtagDto, @MappingTarget Tag tag);
 
     TagDto toDto(Tag tag);
 
