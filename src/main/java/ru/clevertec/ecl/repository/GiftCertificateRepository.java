@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.lang.NonNullApi;
 import ru.clevertec.ecl.entity.GiftCertificate;
 
 import java.util.List;
@@ -30,4 +29,8 @@ public interface GiftCertificateRepository extends JpaRepository<GiftCertificate
 
     @EntityGraph(attributePaths = {"tags"})
     Optional<GiftCertificate> findByNameIgnoreCase(String giftCertificateName);
+
+    @EntityGraph(attributePaths = {"tags"})
+    @Query("select gc from GiftCertificate gc join gc.tags t where lower(t.name) in lower(:tagNames)")
+    List<GiftCertificate> findAllBySeveralTagNames(@Param("tagNames") List<String> tagNames, Pageable pageable);
 }

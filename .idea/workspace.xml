@@ -4,8 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70f69385-acbc-48b9-b03c-92b4b4547569" name="Changes" comment="add all tests">
+    <list default="true" id="70f69385-acbc-48b9-b03c-92b4b4547569" name="Changes" comment="add new branch">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/dto/OrderDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/dto/ReadOrderDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/mapper/OrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/repository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/controller/GiftCertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/controller/GiftCertificateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/controller/TagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/controller/TagController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/exception/EntityNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/exception/EntityNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/mapper/GiftCertificateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/mapper/GiftCertificateMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/repository/GiftCertificateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/repository/GiftCertificateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/repository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/repository/TagRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/GiftCertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/GiftCertificateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/TagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/impl/GiftCertificateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/impl/GiftCertificateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/impl/TagServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/ecl/service/impl/TagServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/changeset/create-tables-prod-1.0.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/changeset/create-tables-dev-2.0.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/db.changelog-master-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/db.changelog-master-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/db.changelog-master-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/db.changelog-master-prod.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +76,17 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="basics" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,7 +129,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dmitry/IdeaProjects/gift-certificates/src/test/java/ru/clevertec/ecl&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dmitry/IdeaProjects/gift-certificates/src/main/java/ru/clevertec/ecl/service/impl&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -113,12 +148,15 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.clevertec.ecl.dto" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dmitry\IdeaProjects\gift-certificates\src\main\java\ru\clevertec\ecl\service\impl" />
       <recent name="C:\Users\Dmitry\IdeaProjects\gift-certificates\src\test\java\ru\clevertec\ecl" />
       <recent name="C:\Users\Dmitry\IdeaProjects\gift-certificates\src\main\resources\changelog" />
       <recent name="C:\Users\Dmitry\IdeaProjects\gift-certificates\src\main\resources" />
       <recent name="C:\Users\Dmitry\IdeaProjects\gift-certificates\src\test\java" />
-      <recent name="C:\Users\Dmitry\IdeaProjects\gift-certificates\src\test\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Dmitry\IdeaProjects\gift-certificates\src\main\resources\changelog\changeset" />
@@ -126,15 +164,15 @@
       <recent name="C:\Users\Dmitry\IdeaProjects\gift-certificates\src\main\resources\changelog" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ru.clevertec.ecl.integration.service" />
-      <recent name="ru.clevertec.ecl.mapper" />
-      <recent name="ru.clevertec.ecl.exception" />
+      <recent name="ru.clevertec.ecl.controller" />
       <recent name="ru.clevertec.ecl.service" />
+      <recent name="ru.clevertec.ecl.mapper" />
+      <recent name="ru.clevertec.ecl.repository" />
       <recent name="ru.clevertec.ecl.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'gift-certificates.test'">
-    <configuration name="TagServiceImplTest.deleteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.GiftCertificateRepositoryTest.findAllTest">
+    <configuration name="GiftCertificateRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -147,7 +185,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.clevertec.ecl.service.TagServiceImplTest.deleteTest&quot;" />
+            <option value="&quot;ru.clevertec.ecl.integration.repository.GiftCertificateRepositoryTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -157,7 +195,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TagServiceImplTest.deleteWithNotFoundIdTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GiftCertificateRepositoryTest.findAllTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -170,7 +208,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.clevertec.ecl.service.TagServiceImplTest.deleteWithNotFoundIdTest&quot;" />
+            <option value="&quot;ru.clevertec.ecl.integration.repository.GiftCertificateRepositoryTest.findAllTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -180,7 +218,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TagServiceImplTest.updateNameTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GiftCertificateServiceImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,7 +231,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.clevertec.ecl.service.TagServiceImplTest.updateNameTest&quot;" />
+            <option value="&quot;ru.clevertec.ecl.service.GiftCertificateServiceImplTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -203,46 +241,44 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TagServiceImplTest.updateWithNotFoundIdTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="gift-certificates [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.clevertec.ecl.service.TagServiceImplTest.updateWithNotFoundIdTest&quot;" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'gift-certificates.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="gift-certificates [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -256,20 +292,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.TagServiceImplTest.deleteTest" />
-      <item itemvalue="Gradle.TagServiceImplTest.deleteWithNotFoundIdTest" />
-      <item itemvalue="Gradle.TagServiceImplTest.updateNameTest" />
-      <item itemvalue="Gradle.TagServiceImplTest.updateWithNotFoundIdTest" />
-      <item itemvalue="Gradle.Tests in 'gift-certificates.test'" />
+      <item itemvalue="Gradle.GiftCertificateRepositoryTest" />
+      <item itemvalue="Gradle.GiftCertificateRepositoryTest.findAllTest" />
+      <item itemvalue="Gradle.GiftCertificateServiceImplTest" />
+      <item itemvalue="Gradle.gift-certificates [build]" />
+      <item itemvalue="Gradle.gift-certificates [clean]" />
       <item itemvalue="Spring Boot.Application" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'gift-certificates.test'" />
-        <item itemvalue="Gradle.TagServiceImplTest.deleteWithNotFoundIdTest" />
-        <item itemvalue="Gradle.TagServiceImplTest.deleteTest" />
-        <item itemvalue="Gradle.TagServiceImplTest.updateWithNotFoundIdTest" />
-        <item itemvalue="Gradle.TagServiceImplTest.updateNameTest" />
+        <item itemvalue="Gradle.GiftCertificateRepositoryTest.findAllTest" />
+        <item itemvalue="Gradle.GiftCertificateRepositoryTest" />
+        <item itemvalue="Gradle.gift-certificates [build]" />
+        <item itemvalue="Gradle.gift-certificates [clean]" />
+        <item itemvalue="Gradle.GiftCertificateServiceImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -311,7 +347,9 @@
       <workItem from="1666359446860" duration="6238000" />
       <workItem from="1666544024783" duration="7907000" />
       <workItem from="1666712047168" duration="11833000" />
-      <workItem from="1666791567449" duration="13353000" />
+      <workItem from="1666791567449" duration="14327000" />
+      <workItem from="1666880248404" duration="12015000" />
+      <workItem from="1667231743651" duration="6564000" />
     </task>
     <task id="LOCAL-00001" summary="create new project">
       <created>1664470762332</created>
@@ -334,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666813461593</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add new branch">
+      <created>1666813701368</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666813701368</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +400,8 @@
     <MESSAGE value="create new project" />
     <MESSAGE value="add some tests" />
     <MESSAGE value="add all tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add all tests" />
+    <MESSAGE value="add new branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new branch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -60,6 +60,12 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
     }
 
     @Override
+    public List<GiftCertificateDto> findAllBySeveralTagNames(List<String> tagNames, Pageable pageable) {
+        return giftCertificateRepository.findAllBySeveralTagNames(tagNames, pageable).stream()
+                .map(giftCertificateMapper::toDto).collect(toList());
+    }
+
+    @Override
     @Transactional
     public GiftCertificateDto save(ReadGiftCertificateDto readGiftCertificateDto) {
         existsByName(readGiftCertificateDto);

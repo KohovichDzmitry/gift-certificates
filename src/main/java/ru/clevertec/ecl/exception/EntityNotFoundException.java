@@ -11,4 +11,9 @@ public class EntityNotFoundException extends RuntimeException {
         super(object.getSimpleName() + " with id:" + id + " not found");
         this.id = String.valueOf(id);
     }
+
+    public EntityNotFoundException(String message) {
+        super(message);
+        this.id = null;
+    }
 }

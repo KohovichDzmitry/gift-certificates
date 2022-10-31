@@ -9,5 +9,7 @@ import java.util.List;
 
 public interface TagService extends GenericService<ReadTagDto, TagDto> {
 
+    TagDto findMostWidelyUsedTag();
+
     List<Tag> createTagList(ReadGiftCertificateDto readGiftCertificateDto);
 }

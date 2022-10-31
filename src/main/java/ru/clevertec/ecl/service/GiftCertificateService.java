@@ -11,4 +11,6 @@ public interface GiftCertificateService extends GenericService<ReadGiftCertifica
     List<GiftCertificateDto> findAllByTagName(String tagName, Pageable pageable);
 
     List<GiftCertificateDto> findAllByPartOfNameOrDescription(String name, String description, Pageable pageable);
+
+    List<GiftCertificateDto> findAllBySeveralTagNames(List<String> tagNames, Pageable pageable);
 }
