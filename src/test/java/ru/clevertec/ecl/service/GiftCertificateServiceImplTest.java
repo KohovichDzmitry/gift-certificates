@@ -10,12 +10,14 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import ru.clevertec.ecl.dto.GiftCertificateDto;
 import ru.clevertec.ecl.dto.ReadGiftCertificateDto;
+import ru.clevertec.ecl.entity.GiftCertificate;
 import ru.clevertec.ecl.exception.EntityNotFoundException;
 import ru.clevertec.ecl.exception.EntityWithNameExistsException;
 import ru.clevertec.ecl.mapper.GiftCertificateMapper;
 import ru.clevertec.ecl.repository.GiftCertificateRepository;
 import ru.clevertec.ecl.service.impl.GiftCertificateServiceImpl;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -114,6 +116,29 @@ class GiftCertificateServiceImplTest {
         doReturn(Optional.empty())
                 .when(giftCertificateRepository).findById(1L);
         assertThrows(EntityNotFoundException.class, () -> giftCertificateService.findById(1L));
+    }
+
+    @Test
+    void findAllBySeveralTagNamesTest() {
+        List<String> tagNames = Arrays.asList("summer", "fun", "nature");
+        List<GiftCertificate> giftCertificates = Arrays.asList(giftCertificate2(), giftCertificate3(),
+                giftCertificate4(), giftCertificate5());
+        doReturn(giftCertificates)
+                .when(giftCertificateRepository).findAllBySeveralTagNames(tagNames, pageable());
+        doReturn(giftCertificateDto2())
+                .when(giftCertificateMapper).toDto(giftCertificate2());
+        doReturn(giftCertificateDto3())
+                .when(giftCertificateMapper).toDto(giftCertificate3());
+        doReturn(giftCertificateDto4())
+                .when(giftCertificateMapper).toDto(giftCertificate4());
+        doReturn(giftCertificateDto5())
+                .when(giftCertificateMapper).toDto(giftCertificate5());
+        List<GiftCertificateDto> actual = giftCertificateService.findAllBySeveralTagNames(tagNames, pageable());
+        List<GiftCertificateDto> expected = Arrays.asList(giftCertificateDto2(), giftCertificateDto3(),
+                giftCertificateDto4(), giftCertificateDto5());
+        assertEquals(expected, actual);
+        verify(giftCertificateRepository).findAllBySeveralTagNames(tagNames, pageable());
+        verify(giftCertificateMapper, times(4)).toDto(any(GiftCertificate.class));
     }
 
     @Test

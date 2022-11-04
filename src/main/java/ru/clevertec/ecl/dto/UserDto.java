@@ -11,5 +11,4 @@ public class UserDto {
 
     Long id;
     String name;
-    List<OrderDto> orders;
 }

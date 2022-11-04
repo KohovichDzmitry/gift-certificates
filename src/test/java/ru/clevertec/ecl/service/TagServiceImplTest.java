@@ -67,6 +67,19 @@ class TagServiceImplTest {
     }
 
     @Test
+    void findMostWidelyUsedTagTest() {
+        doReturn(Optional.of(tag1()))
+                .when(tagRepository).findMostWidelyUsedTag();
+        doReturn(tagDto1())
+                .when(tagMapper).toDto(tag1());
+        TagDto actual = tagService.findMostWidelyUsedTag();
+        TagDto expected = tagDto1();
+        assertEquals(expected, actual);
+        verify(tagRepository).findMostWidelyUsedTag();
+        verify(tagMapper).toDto(tag1());
+    }
+
+    @Test
     void saveTest() {
         doReturn(Optional.empty())
                 .when(tagRepository).findByNameIgnoreCase(any(String.class));

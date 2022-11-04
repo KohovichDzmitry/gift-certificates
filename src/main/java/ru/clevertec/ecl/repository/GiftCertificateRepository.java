@@ -31,6 +31,6 @@ public interface GiftCertificateRepository extends JpaRepository<GiftCertificate
     Optional<GiftCertificate> findByNameIgnoreCase(String giftCertificateName);
 
     @EntityGraph(attributePaths = {"tags"})
-    @Query("select gc from GiftCertificate gc join gc.tags t where lower(t.name) in lower(:tagNames)")
+    @Query("select gc from GiftCertificate gc join gc.tags t where t.name in (:tagNames)")
     List<GiftCertificate> findAllBySeveralTagNames(@Param("tagNames") List<String> tagNames, Pageable pageable);
 }

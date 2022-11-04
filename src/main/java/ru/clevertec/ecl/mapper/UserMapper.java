@@ -7,7 +7,7 @@ import ru.clevertec.ecl.entity.User;
 
 import java.util.List;
 
-@Mapper(uses = OrderMapper.class, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserMapper {
 
     UserDto toDto(User user);

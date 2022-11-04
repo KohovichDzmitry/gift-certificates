@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDto> findAll(Pageable pageable) {
         return userMapper.toDtoList(userRepository
-                .findAll((pageable)).toList());
+                .findAll(pageable).toList());
     }
 
     @Override

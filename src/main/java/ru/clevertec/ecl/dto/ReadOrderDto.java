@@ -14,10 +14,10 @@ import java.math.BigDecimal;
 @Builder
 public class ReadOrderDto {
 
-    Long id;
+//    Long id;
 
-    @Positive
-    private BigDecimal cost;
+//    @Positive
+//    private BigDecimal cost;
 
     @Positive
     private Long userId;

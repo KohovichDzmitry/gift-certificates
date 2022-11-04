@@ -7,6 +7,7 @@ import ru.clevertec.ecl.entity.GiftCertificate;
 import ru.clevertec.ecl.integration.IntegrationTestBase;
 import ru.clevertec.ecl.repository.GiftCertificateRepository;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,7 @@ import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static ru.clevertec.ecl.dataForTest.GiftCertificateForTest.*;
+import static ru.clevertec.ecl.dataForTest.GiftCertificateForTest.giftCertificate2;
 
 @RequiredArgsConstructor
 public class GiftCertificateRepositoryTest extends IntegrationTestBase {
@@ -84,6 +86,15 @@ public class GiftCertificateRepositoryTest extends IntegrationTestBase {
     void findByNameIgnoreCaseTest() {
         Optional<GiftCertificate> optional = giftCertificateRepository.findByNameIgnoreCase("TRavEl");
         optional.ifPresent(actual -> assertEquals(giftCertificate3(), actual));
+    }
+
+    @Test
+    void findAllBySeveralTagNamesTest() {
+        List<String> tagNames = Arrays.asList("summer", "fun", "nature");
+        List<GiftCertificate> actual = giftCertificateRepository.findAllBySeveralTagNames(tagNames, pageable());
+        List<GiftCertificate> expected = Arrays.asList(giftCertificate2(), giftCertificate3(), giftCertificate4(),
+                giftCertificate5());
+        assertEquals(expected, actual);
     }
 
     @Test

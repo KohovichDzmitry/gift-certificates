@@ -18,7 +18,7 @@ public interface TagRepository extends JpaRepository<Tag, Long> {
             + "      (SELECT user_id "
             + "       FROM orders "
             + "       GROUP BY user_id "
-            + "       ORDER BY SUM(cost) DESC "
+            + "       ORDER BY SUM(cost)"
             + "       LIMIT 1) "
             + "GROUP BY tag.id, tag.name "
             + "ORDER BY COUNT(tag.id) DESC "
