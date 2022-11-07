@@ -18,12 +18,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.verify;
 import static ru.clevertec.ecl.dataForTest.GiftCertificateForTest.giftCertificateDto1;
 import static ru.clevertec.ecl.dataForTest.OrderForTest.*;
-import static ru.clevertec.ecl.dataForTest.OrderForTest.orderDto1;
 import static ru.clevertec.ecl.dataForTest.UserForTest.userDto3;
 
 
@@ -89,28 +86,6 @@ class OrderServiceImplTest {
                 .when(orderRepository).findById(1L);
         assertThrows(EntityNotFoundException.class, () -> orderService.findById(1L));
     }
-
-//    @Test
-//    void createOrderTest() {
-//        doReturn(giftCertificateDto1())
-//                .when(giftCertificateService).findById(orderDtoForCreateOrder().getGiftCertificateId());
-//        doReturn(userDto3())
-//                .when(userService).findById(orderDtoForCreateOrder().getUserId());
-//        doReturn(order1WithoutId())
-//                .when(orderMapper).toEntity(orderDtoForCreateOrderWithCost(), userDto3(), giftCertificateDto1());
-//        doReturn(order1())
-//                .when(orderRepository).save(order1WithoutId());
-//        doReturn(orderDto1())
-//                .when(orderMapper).toDto(order1());
-//        OrderDto actual = orderService.createOrder(orderDtoForCreateOrder());
-//        OrderDto expected = orderDto1();
-//        assertEquals(expected, actual);
-//        verify(giftCertificateService).findById(orderDtoForCreateOrder().getGiftCertificateId());
-//        verify(userService).findById(orderDtoForCreateOrder().getUserId());
-//        verify(orderMapper).toEntity(orderDtoForCreateOrderWithCost(), userDto3(), giftCertificateDto1());
-//        verify(orderRepository).save(order1WithoutId());
-//        verify(orderMapper).toDto(order1());
-//    }
 
     @Test
     void createOrderTest() {

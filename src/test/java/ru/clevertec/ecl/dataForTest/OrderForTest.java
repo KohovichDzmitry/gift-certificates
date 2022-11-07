@@ -56,15 +56,6 @@ public class OrderForTest {
                 .build();
     }
 
-    public static Order order1WithoutId() {
-        return Order.builder()
-                .cost(BigDecimal.valueOf(115.15))
-                .purchaseTimestamp(LocalDateTime.now().withNano(0))
-                .user(user3())
-                .giftCertificate(giftCertificate1())
-                .build();
-    }
-
     public static Order order1ForCreate() {
         return Order.builder()
                 .id(1L)
@@ -136,14 +127,6 @@ public class OrderForTest {
                 .giftCertificateId(1L)
                 .build();
     }
-
-//    public static ReadOrderDto orderDtoForCreateOrderWithCost() {
-//        return ReadOrderDto.builder()
-//                .userId(3L)
-//                .cost(BigDecimal.valueOf(115.15))
-//                .giftCertificateId(1L)
-//                .build();
-//    }
 
     public static ReadOrderDto readOrderDtoForCreateOrderWithNotExistUserId() {
         return ReadOrderDto.builder()

@@ -17,16 +17,17 @@ import ru.clevertec.ecl.mapper.GiftCertificateMapper;
 import ru.clevertec.ecl.repository.GiftCertificateRepository;
 import ru.clevertec.ecl.service.impl.GiftCertificateServiceImpl;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static ru.clevertec.ecl.dataForTest.GiftCertificateForTest.*;
+import static ru.clevertec.ecl.dataForTest.GiftCertificateForTest.giftCertificate4;
 import static ru.clevertec.ecl.dataForTest.TagForTest.tagForSave;
 
 @ExtendWith(MockitoExtension.class)
@@ -87,15 +88,20 @@ class GiftCertificateServiceImplTest {
 
     @Test
     void findAllByTagNameTest() {
-        doReturn(singletonList(giftCertificate4()))
-                .when(giftCertificateRepository).findAllByTagName("summer", pageWithSizeOne());
-        doReturn(giftCertificateDto4())
-                .when(giftCertificateMapper).toDto(giftCertificate4());
-        List<GiftCertificateDto> actual = giftCertificateService.findAllByTagName("summer", pageWithSizeOne());
-        List<GiftCertificateDto> expected = singletonList(giftCertificateDto4());
+        doReturn(asList(giftCertificate1(), giftCertificate2(),
+                giftCertificate3(), giftCertificate5()))
+                .when(giftCertificateRepository).findAllByTagName("mood", pageWithSizeOne());
+        doReturn(asList(giftCertificateDto1(), giftCertificateDto2(),
+                giftCertificateDto3(), giftCertificateDto5()))
+                .when(giftCertificateMapper).toDtoList(asList(giftCertificate1(), giftCertificate2(),
+                        giftCertificate3(), giftCertificate5()));
+        List<GiftCertificateDto> actual = giftCertificateService.findAllByTagName("mood", pageWithSizeOne());
+        List<GiftCertificateDto> expected = asList(giftCertificateDto1(), giftCertificateDto2(),
+                giftCertificateDto3(), giftCertificateDto5());
         assertEquals(expected, actual);
-        verify(giftCertificateRepository).findAllByTagName("summer", pageWithSizeOne());
-        verify(giftCertificateMapper).toDto(giftCertificate4());
+        verify(giftCertificateRepository).findAllByTagName("mood", pageWithSizeOne());
+        verify(giftCertificateMapper).toDtoList(asList(giftCertificate1(), giftCertificate2(),
+                giftCertificate3(), giftCertificate5()));
     }
 
     @Test
@@ -120,25 +126,20 @@ class GiftCertificateServiceImplTest {
 
     @Test
     void findAllBySeveralTagNamesTest() {
-        List<String> tagNames = Arrays.asList("summer", "fun", "nature");
-        List<GiftCertificate> giftCertificates = Arrays.asList(giftCertificate2(), giftCertificate3(),
+        List<String> tagNames = asList("summer", "fun", "nature");
+        List<GiftCertificate> giftCertificates = asList(giftCertificate2(), giftCertificate3(),
                 giftCertificate4(), giftCertificate5());
         doReturn(giftCertificates)
                 .when(giftCertificateRepository).findAllBySeveralTagNames(tagNames, pageable());
-        doReturn(giftCertificateDto2())
-                .when(giftCertificateMapper).toDto(giftCertificate2());
-        doReturn(giftCertificateDto3())
-                .when(giftCertificateMapper).toDto(giftCertificate3());
-        doReturn(giftCertificateDto4())
-                .when(giftCertificateMapper).toDto(giftCertificate4());
-        doReturn(giftCertificateDto5())
-                .when(giftCertificateMapper).toDto(giftCertificate5());
-        List<GiftCertificateDto> actual = giftCertificateService.findAllBySeveralTagNames(tagNames, pageable());
-        List<GiftCertificateDto> expected = Arrays.asList(giftCertificateDto2(), giftCertificateDto3(),
+        doReturn(asList(giftCertificateDto2(), giftCertificateDto3(),
+                giftCertificateDto4(), giftCertificateDto5()))
+                .when(giftCertificateMapper).toDtoList(giftCertificates);
+                List<GiftCertificateDto> actual = giftCertificateService.findAllBySeveralTagNames(tagNames, pageable());
+        List<GiftCertificateDto> expected = asList(giftCertificateDto2(), giftCertificateDto3(),
                 giftCertificateDto4(), giftCertificateDto5());
         assertEquals(expected, actual);
         verify(giftCertificateRepository).findAllBySeveralTagNames(tagNames, pageable());
-        verify(giftCertificateMapper, times(4)).toDto(any(GiftCertificate.class));
+        verify(giftCertificateMapper).toDtoList(giftCertificates);
     }
 
     @Test

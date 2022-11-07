@@ -16,22 +16,12 @@ import java.util.List;
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface OrderMapper {
 
-//    @Mapping(source = "readOrderDto.id", target = "id")
-//    @Mapping(target = "purchaseTimestamp", expression = "java(LocalDateTime.now().withNano(0))")
-//    @Mapping(source = "userDto", target = "user")
-//    @Mapping(source = "giftCertificateDto", target = "giftCertificate")
-//    Order toEntity(ReadOrderDto readOrderDto, UserDto userDto, GiftCertificateDto giftCertificateDto);
-
-//    @Mapping(source = "readOrderDto.id", target = "id")
     @Mapping(target = "purchaseTimestamp", expression = "java(LocalDateTime.now().withNano(0))")
-//    @Mapping(source = "userDto", target = "user")
-//    @Mapping(source = "giftCertificateDto", target = "giftCertificate")
     @Mapping(target = "cost", ignore = true)
     @Mapping(target = "user", ignore = true)
     @Mapping(target = "giftCertificate", ignore = true)
     Order toEntity(ReadOrderDto readOrderDto);
 
-//    @Mapping(target = "purchaseTimestamp", source = "purchaseTimestamp");
     @Mapping(source = "order.id", target = "id")
     @Mapping(target = "user", source = "userDto")
     @Mapping(target = "giftCertificate", source = "giftCertificateDto")

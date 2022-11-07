@@ -20,7 +20,7 @@ public class TagRepositoryTest extends IntegrationTestBase {
     private final TagRepository tagRepository;
 
     @Test
-    void FindAllTest() {
+    void findAllTest() {
         List<Tag> actual = tagRepository.findAll(PageRequest.of(0, 20)).getContent();
         assertEquals(tags(), actual);
     }
@@ -32,9 +32,15 @@ public class TagRepositoryTest extends IntegrationTestBase {
     }
 
     @Test
-    void findByName() {
+    void findByNameTest() {
         Optional<Tag> optional = tagRepository.findByNameIgnoreCase("summer");
         optional.ifPresent(tag -> assertEquals(tag4(), tag));
+    }
+
+    @Test
+    void findMostWidelyUsedTagTest() {
+        Optional<Tag> optional = tagRepository.findMostWidelyUsedTag();
+        optional.ifPresent(tag -> assertEquals(tag3(), tag));
     }
 
     @Test

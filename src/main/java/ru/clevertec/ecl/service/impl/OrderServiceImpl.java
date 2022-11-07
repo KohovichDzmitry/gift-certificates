@@ -49,14 +49,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public OrderDto createOrder(ReadOrderDto readOrderDto) {
-        Order order = buildOrder(readOrderDto);
-        return orderMapper.toDto(orderRepository.save(order));
-    }
-
-    private Order buildOrder(ReadOrderDto readOrderDto) {
+        Order order = orderMapper.toEntity(readOrderDto);
         GiftCertificateDto giftCertificateDto = giftCertificateService.findById(readOrderDto.getGiftCertificateId());
         UserDto userDto = userService.findById(readOrderDto.getUserId());
-        readOrderDto.setCost(giftCertificateDto.getPrice());
-        return orderMapper.toEntity(readOrderDto, userDto, giftCertificateDto);
+        order.setCost(giftCertificateDto.getPrice());
+        Order finalOrder = orderMapper.toFinalEntity(order, userDto, giftCertificateDto);
+        return orderMapper.toDto(orderRepository.save(finalOrder));
     }
 }

@@ -17,11 +17,12 @@ public class GiftCertificateDto {
     String description;
     BigDecimal price;
     Integer duration;
-    List<TagDto> tags;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     LocalDateTime createDate;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     LocalDateTime lastUpdateDate;
+
+    List<TagDto> tags;
 }
