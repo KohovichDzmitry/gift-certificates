@@ -9,8 +9,10 @@ import ru.clevertec.ecl.integration.IntegrationTestBase;
 import ru.clevertec.ecl.repository.GiftCertificateRepository;
 import ru.clevertec.ecl.service.GiftCertificateService;
 
+import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -48,6 +50,13 @@ public class GiftCertificateServiceImplTest extends IntegrationTestBase {
         assertEquals(singletonList(giftCertificateDto4()), actual);
     }
 
+//    @Test
+//    void findAllByTagNameTest() {
+//        List<GiftCertificateDto> actual = giftCertificateService.findAllByTagName("mood", pageable());
+//        assertEquals(asList(giftCertificateDto1(), giftCertificateDto2(),
+//                giftCertificateDto3(), giftCertificateDto5()), actual);
+//    }
+
     @Test
     void findByIdTest() {
         GiftCertificateDto actual = giftCertificateService.findById(1L);
@@ -58,6 +67,23 @@ public class GiftCertificateServiceImplTest extends IntegrationTestBase {
     void findByIdNegativeTest() {
         assertThrows(EntityNotFoundException.class, () -> giftCertificateService.findById(8L));
     }
+
+    @Test
+    void findAllBySeveralTagNamesTest() {
+        List<String> tagNames = singletonList("summer");
+        List<GiftCertificateDto> actual = giftCertificateService.findAllBySeveralTagNames(tagNames, pageable());
+        List<GiftCertificateDto> expected = singletonList(giftCertificateDto4());
+        assertEquals(expected, actual);
+    }
+
+//    @Test
+//    void findAllBySeveralTagNamesTest() {
+//        List<String> tagNames = Arrays.asList("summer", "fun", "nature");
+//        List<GiftCertificateDto> actual = giftCertificateService.findAllBySeveralTagNames(tagNames, pageable());
+//        List<GiftCertificateDto> expected = Arrays.asList(giftCertificateDto2(), giftCertificateDto3(),
+//                giftCertificateDto4(), giftCertificateDto5());
+//        assertEquals(expected, actual);
+//    }
 
     @Test
     void saveTest() {

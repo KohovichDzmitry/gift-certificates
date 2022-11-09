@@ -55,8 +55,12 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
 
     @Override
     public List<GiftCertificateDto> findAllByTagName(String tagName, Pageable pageable) {
-        return giftCertificateRepository.findAllByTagName(tagName, pageable).stream()
-                .map(giftCertificateMapper::toDto).collect(toList());
+        return giftCertificateMapper.toDtoList(giftCertificateRepository.findAllByTagName(tagName, pageable));
+    }
+
+    @Override
+    public List<GiftCertificateDto> findAllBySeveralTagNames(List<String> tagNames, Pageable pageable) {
+        return giftCertificateMapper.toDtoList(giftCertificateRepository.findAllBySeveralTagNames(tagNames, pageable));
     }
 
     @Override

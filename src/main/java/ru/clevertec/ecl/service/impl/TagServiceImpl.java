@@ -37,6 +37,12 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    public TagDto findMostWidelyUsedTag() {
+        return tagMapper.toDto(tagRepository.findMostWidelyUsedTag()
+                .orElseThrow(() -> new EntityNotFoundException("Tag not found")));
+    }
+
+    @Override
     @Transactional
     public TagDto save(ReadTagDto readTagDto) {
         existsByName(readTagDto);

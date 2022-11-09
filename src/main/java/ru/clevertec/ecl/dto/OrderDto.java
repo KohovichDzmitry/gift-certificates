@@ -6,23 +6,17 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Value
 @Builder
-public class GiftCertificateDto {
+public class OrderDto {
 
     Long id;
-    String name;
-    String description;
-    BigDecimal price;
-    Integer duration;
+    BigDecimal cost;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    LocalDateTime createDate;
+    LocalDateTime purchaseTimestamp;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    LocalDateTime lastUpdateDate;
-
-    List<TagDto> tags;
+    Long userId;
+    Long giftCertificateId;
 }

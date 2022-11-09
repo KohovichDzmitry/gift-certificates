@@ -47,3 +47,23 @@ INSERT INTO gift_certificate_tag (gift_certificate_id, tag_id)
 VALUES (5, 3);
 INSERT INTO gift_certificate_tag (gift_certificate_id, tag_id)
 VALUES (5, 5);
+
+-- changeset Kohovich Dmitry:4
+INSERT INTO users (id, name)
+VALUES (1, 'Qwerty');
+INSERT INTO users (id, name)
+VALUES (2, 'Solomon');
+INSERT INTO users (id, name)
+VALUES (3, 'Ronaldo');
+SELECT SETVAL('users_id_seq', (SELECT MAX(id) FROM users));
+
+-- changeset Kohovich Dmitry:5
+INSERT INTO orders (id, cost, purchase_timestamp, user_id, gift_certificate_id)
+VALUES (1, 115.15, current_timestamp(3), 3, 1);
+INSERT INTO orders (id, cost, purchase_timestamp, user_id, gift_certificate_id)
+VALUES (2, 75.75, current_timestamp(3), 2, 2);
+INSERT INTO orders (id, cost, purchase_timestamp, user_id, gift_certificate_id)
+VALUES (3, 102.05, current_timestamp(3), 3, 3);
+INSERT INTO orders (id, cost, purchase_timestamp, user_id, gift_certificate_id)
+VALUES (4, 55.55, current_timestamp(3), 1, 4);
+SELECT SETVAL('orders_id_seq', (SELECT MAX(id) FROM orders));

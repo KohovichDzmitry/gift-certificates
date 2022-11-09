@@ -39,6 +39,12 @@ public class TagServiceImplTest extends IntegrationTestBase {
     }
 
     @Test
+    void findMostWidelyUsedTagTest() {
+        TagDto actual = tagService.findMostWidelyUsedTag();
+        assertEquals(tagDto3(), actual);
+    }
+
+    @Test
     void saveTest() {
         TagDto actual = tagService.save(readTagDtoForSave());
         tagRepository.flush();

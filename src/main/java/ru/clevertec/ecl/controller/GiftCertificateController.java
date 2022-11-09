@@ -12,6 +12,7 @@ import ru.clevertec.ecl.service.GiftCertificateService;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 import java.util.List;
 
@@ -29,7 +30,8 @@ public class GiftCertificateController {
     }
 
     @GetMapping("/part")
-    public ResponseEntity<List<GiftCertificateDto>> findAllBy(@RequestParam(required = false) String name,
+    public ResponseEntity<List<GiftCertificateDto>> findAllBy(@Pattern(regexp = "[A-Z, a-z]+")
+                                                              @RequestParam(required = false) String name,
                                                               @RequestParam(required = false) String description,
                                                               Pageable pageable) {
         return ResponseEntity.ok(giftCertificateService.findAllByPartOfNameOrDescription(name, description, pageable));
@@ -44,6 +46,13 @@ public class GiftCertificateController {
     public ResponseEntity<List<GiftCertificateDto>> findAllByTagName(@NotBlank @PathVariable String tagName,
                                                                      Pageable pageable) {
         return ResponseEntity.ok(giftCertificateService.findAllByTagName(tagName, pageable));
+    }
+
+    @GetMapping("/tags/")
+    public ResponseEntity<List<GiftCertificateDto>> findAllBySeveralTagNames(
+            @RequestParam(required = false) List<String> tagNames,
+            Pageable pageable) {
+        return ResponseEntity.ok(giftCertificateService.findAllBySeveralTagNames(tagNames, pageable));
     }
 
     @PostMapping
