@@ -38,6 +38,16 @@ public class OrderController {
         return ResponseEntity.ok(orderService.findAllByUserId(userId, pageable));
     }
 
+    @GetMapping("/sequence")
+    public ResponseEntity<Integer> findLastSequenceValue() {
+        return ResponseEntity.ok(orderService.findLastSequenceValue());
+    }
+
+    @PutMapping("/sequence")
+    public ResponseEntity<Integer> setSequenceValue(@RequestBody Integer sequenceValue) {
+        return ResponseEntity.ok(orderService.setSequenceValue(sequenceValue));
+    }
+
     @PostMapping
     public ResponseEntity<OrderDto> createOrderByGiftCertificateId(@Valid @RequestBody ReadOrderDto readOrderDto) {
         return new ResponseEntity<>(orderService.createOrder(readOrderDto), HttpStatus.CREATED);

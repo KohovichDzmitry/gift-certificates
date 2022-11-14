@@ -47,6 +47,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Integer findLastSequenceValue() {
+        return orderRepository.findLastSequenceValue();
+    }
+
+    @Override
+    @Transactional
+    public Integer setSequenceValue(Integer sequenceValue) {
+        return orderRepository.setSequenceValue(sequenceValue);
+    }
+
+    @Override
     @Transactional
     public OrderDto createOrder(ReadOrderDto readOrderDto) {
         Order order = orderMapper.toEntity(readOrderDto);

@@ -11,5 +11,7 @@ public interface TagService extends GenericService<ReadTagDto, TagDto> {
 
     TagDto findMostWidelyUsedTag();
 
+    Integer findLastSequenceValue();
+
     List<Tag> createTagList(ReadGiftCertificateDto readGiftCertificateDto);
 }

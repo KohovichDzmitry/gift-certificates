@@ -14,5 +14,9 @@ public interface OrderService {
 
     List<OrderDto> findAllByUserId(Long userId, Pageable pageable);
 
+    Integer findLastSequenceValue();
+
+    Integer setSequenceValue(Integer sequenceValue);
+
     OrderDto createOrder(ReadOrderDto readOrderDto);
 }

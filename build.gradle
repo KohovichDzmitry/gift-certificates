@@ -22,7 +22,8 @@ repositories {
 
 ext.versions = [
         'mapStruct': '1.5.3.Final',
-        'testcontainers': '1.17.4'
+        'testcontainers': '1.17.4',
+        'httpclient' : '4.5.13'
 ]
 
 dependencies {
@@ -35,8 +36,13 @@ dependencies {
     implementation "org.mapstruct:mapstruct:${versions.mapStruct}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${versions.mapStruct}"
     testImplementation "org.testcontainers:postgresql:${versions.testcontainers}"
+    implementation "org.apache.httpcomponents:httpclient:${versions.httpclient}"
 }
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    enabled = false
 }
