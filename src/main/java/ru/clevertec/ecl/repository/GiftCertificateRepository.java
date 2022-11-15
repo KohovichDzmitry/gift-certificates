@@ -33,4 +33,7 @@ public interface GiftCertificateRepository extends JpaRepository<GiftCertificate
     @EntityGraph(attributePaths = {"tags"})
     @Query("select gc from GiftCertificate gc join gc.tags t where t.name in (:tagNames)")
     List<GiftCertificate> findAllBySeveralTagNames(@Param("tagNames") List<String> tagNames, Pageable pageable);
+
+    @Query(value = "select last_value from gift_certificate_id_seq", nativeQuery = true)
+    Integer findLastSequenceValue();
 }

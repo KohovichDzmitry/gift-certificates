@@ -15,7 +15,7 @@ import javax.validation.constraints.Positive;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/tags")
+@RequestMapping("/v1/tags")
 @RequiredArgsConstructor
 @Validated
 public class TagController {
@@ -35,6 +35,11 @@ public class TagController {
     @GetMapping("/mostWidelyUsedTag")
     public ResponseEntity<TagDto> findMostWidelyUsedTag() {
         return ResponseEntity.ok(tagService.findMostWidelyUsedTag());
+    }
+
+    @GetMapping("/sequence")
+    public ResponseEntity<Integer> findLastSequenceValue() {
+        return ResponseEntity.ok(tagService.findLastSequenceValue());
     }
 
     @PostMapping

@@ -43,6 +43,11 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    public Integer findLastSequenceValue() {
+        return tagRepository.findLastSequenceValue();
+    }
+
+    @Override
     @Transactional
     public TagDto save(ReadTagDto readTagDto) {
         existsByName(readTagDto);

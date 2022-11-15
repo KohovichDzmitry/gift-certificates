@@ -64,6 +64,11 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
     }
 
     @Override
+    public Integer findLastSequenceValue() {
+        return giftCertificateRepository.findLastSequenceValue();
+    }
+
+    @Override
     @Transactional
     public GiftCertificateDto save(ReadGiftCertificateDto readGiftCertificateDto) {
         existsByName(readGiftCertificateDto);

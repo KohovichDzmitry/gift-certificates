@@ -17,7 +17,7 @@ import javax.validation.constraints.Positive;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/gift-certificates")
+@RequestMapping("/v1/gift-certificates")
 @RequiredArgsConstructor
 @Validated
 public class GiftCertificateController {
@@ -53,6 +53,11 @@ public class GiftCertificateController {
             @RequestParam(required = false) List<String> tagNames,
             Pageable pageable) {
         return ResponseEntity.ok(giftCertificateService.findAllBySeveralTagNames(tagNames, pageable));
+    }
+
+    @GetMapping("/sequence")
+    public ResponseEntity<Integer> findLastSequenceValue() {
+        return ResponseEntity.ok(giftCertificateService.findLastSequenceValue());
     }
 
     @PostMapping
