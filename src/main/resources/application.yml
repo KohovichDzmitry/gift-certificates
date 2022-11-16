@@ -18,6 +18,9 @@ spring:
   profiles:
     active: dev
 
+  quartz:
+    job-store-type: memory
+
 logging:
   file:
     path: /
@@ -52,3 +55,5 @@ cluster:
     8087: seventh-app
     8088: eighth-app
     8089: ninth-app
+  schedulerStartDelay: 10_000
+  schedulerRepeatInterval: 180_000
