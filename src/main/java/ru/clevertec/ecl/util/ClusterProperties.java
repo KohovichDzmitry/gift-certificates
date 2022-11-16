@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Map;
 
 @Component
@@ -14,6 +13,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ClusterProperties {
 
-    private final Map<Integer, String> mapContainers;
-    private final List<Integer> ports;
+    private final Map<Integer, Map<Integer, String>> shards;
+    private final Map<Integer, String> allNodes;
 }

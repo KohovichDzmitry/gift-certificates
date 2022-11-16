@@ -1,7 +1,9 @@
 package ru.clevertec.ecl.mapper;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
+import ru.clevertec.ecl.dto.ReadUserDto;
 import ru.clevertec.ecl.dto.UserDto;
 import ru.clevertec.ecl.entity.User;
 
@@ -11,6 +13,9 @@ import java.util.List;
 public interface UserMapper {
 
     UserDto toDto(User user);
+
+    @Mapping(target = "orders", ignore = true)
+    User toEntity(ReadUserDto readUserDto);
 
     List<UserDto> toDtoList(List<User> userList);
 }

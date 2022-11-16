@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.clevertec.ecl.dto.ReadUserDto;
 import ru.clevertec.ecl.dto.UserDto;
 import ru.clevertec.ecl.entity.User;
 import ru.clevertec.ecl.exception.EntityNotFoundException;
@@ -38,5 +39,11 @@ public class UserServiceImpl implements UserService {
     public UserDto findByNameIgnoreCase(String userName) {
         return userMapper.toDto(userRepository.findByNameIgnoreCase(userName)
                 .orElseThrow(() -> new EntityWithNameExistsException(User.class, userName)));
+    }
+
+    @Override
+    @Transactional
+    public UserDto save(ReadUserDto readUserDto) {
+        return userMapper.toDto(userRepository.save(userMapper.toEntity(readUserDto)));
     }
 }

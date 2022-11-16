@@ -2,15 +2,15 @@ package ru.clevertec.ecl.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.clevertec.ecl.dto.ReadUserDto;
 import ru.clevertec.ecl.dto.UserDto;
 import ru.clevertec.ecl.service.UserService;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 import java.util.List;
@@ -36,5 +36,10 @@ public class UserController {
     @GetMapping("/name/{userName}")
     public ResponseEntity<UserDto> findByNameIgnoreCase(@NotBlank @PathVariable String userName) {
         return ResponseEntity.ok(userService.findByNameIgnoreCase(userName));
+    }
+
+    @PostMapping
+    public ResponseEntity<UserDto> save(@Valid @RequestBody ReadUserDto readUserDto) {
+        return new ResponseEntity<>(userService.save(readUserDto), HttpStatus.CREATED);
     }
 }
