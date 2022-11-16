@@ -11,8 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static ru.clevertec.ecl.dataForTest.UserForTest.user1;
-import static ru.clevertec.ecl.dataForTest.UserForTest.users;
+import static ru.clevertec.ecl.dataForTest.UserForTest.*;
 
 @RequiredArgsConstructor
 public class UserRepositoryTest extends IntegrationTestBase {
@@ -35,5 +34,12 @@ public class UserRepositoryTest extends IntegrationTestBase {
     void findByNameTest() {
         Optional<User> optional = userRepository.findByNameIgnoreCase("Qwerty");
         optional.ifPresent(user -> assertEquals(user1(), user));
+    }
+
+    @Test
+    void saveTest() {
+        User actual = userRepository.save(userForSave());
+        userRepository.flush();
+        assertEquals(userForSave(), actual);
     }
 }

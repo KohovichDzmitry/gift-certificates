@@ -85,7 +85,7 @@ public class TagServiceImpl implements TagService {
 
     private void existsByName(ReadTagDto readTagDto) {
         tagRepository.findByNameIgnoreCase(readTagDto.getName())
-                .ifPresent(giftCertificate -> {
+                .ifPresent(tag -> {
                     throw new EntityWithNameExistsException(Tag.class, readTagDto.getName());
                 });
     }

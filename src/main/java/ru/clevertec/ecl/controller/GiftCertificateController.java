@@ -48,7 +48,7 @@ public class GiftCertificateController {
         return ResponseEntity.ok(giftCertificateService.findAllByTagName(tagName, pageable));
     }
 
-    @GetMapping("/tags/")
+    @GetMapping("/tags")
     public ResponseEntity<List<GiftCertificateDto>> findAllBySeveralTagNames(
             @RequestParam(required = false) List<String> tagNames,
             Pageable pageable) {

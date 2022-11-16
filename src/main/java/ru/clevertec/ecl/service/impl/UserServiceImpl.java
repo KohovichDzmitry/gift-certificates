@@ -44,6 +44,14 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserDto save(ReadUserDto readUserDto) {
+        existsByName(readUserDto);
         return userMapper.toDto(userRepository.save(userMapper.toEntity(readUserDto)));
+    }
+
+    private void existsByName(ReadUserDto readUserDto) {
+        userRepository.findByNameIgnoreCase(readUserDto.getName())
+                .ifPresent(user -> {
+                    throw new EntityWithNameExistsException(User.class, readUserDto.getName());
+                });
     }
 }
