@@ -18,8 +18,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 import static ru.clevertec.ecl.dataForTest.UserForTest.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -85,5 +85,35 @@ class UserServiceImplTest {
         doReturn(Optional.empty())
                 .when(userRepository).findByNameIgnoreCase("Qwerty");
         assertThrows(EntityWithNameExistsException.class, () -> userService.findByNameIgnoreCase("Qwerty"));
+    }
+
+    @Test
+    void saveTest() {
+        doReturn(Optional.empty())
+                .when(userRepository).findByNameIgnoreCase(any(String.class));
+        doReturn(user1WithoutId())
+                .when(userMapper).toEntity(readUserDto1());
+        doReturn(user1())
+                .when(userRepository).save(user1WithoutId());
+        doReturn(userDto1())
+                .when(userMapper).toDto(user1());
+        UserDto actual = userService.save(readUserDto1());
+        UserDto expected = userDto1();
+        assertEquals(expected, actual);
+        verify(userRepository).findByNameIgnoreCase(any(String.class));
+        verify(userMapper).toEntity(readUserDto1());
+        verify(userRepository).save(user1WithoutId());
+        verify(userMapper).toDto(user1());
+    }
+
+    @Test
+    void saveWithExistsNameTest() {
+        doReturn(Optional.empty())
+                .when(userRepository).findByNameIgnoreCase(any(String.class));
+        doReturn(user1WithoutId())
+                .when(userMapper).toEntity(readUserDto1());
+        doThrow(EntityWithNameExistsException.class)
+                .when(userRepository).save(user1WithoutId());
+        assertThrows(EntityWithNameExistsException.class, () -> userService.save(readUserDto1()));
     }
 }

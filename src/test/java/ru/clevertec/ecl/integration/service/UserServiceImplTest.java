@@ -7,19 +7,20 @@ import ru.clevertec.ecl.dto.UserDto;
 import ru.clevertec.ecl.exception.EntityNotFoundException;
 import ru.clevertec.ecl.exception.EntityWithNameExistsException;
 import ru.clevertec.ecl.integration.IntegrationTestBase;
+import ru.clevertec.ecl.repository.UserRepository;
 import ru.clevertec.ecl.service.UserService;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static ru.clevertec.ecl.dataForTest.UserForTest.userDto1;
-import static ru.clevertec.ecl.dataForTest.UserForTest.usersDto;
+import static ru.clevertec.ecl.dataForTest.UserForTest.*;
 
 @RequiredArgsConstructor
 public class UserServiceImplTest extends IntegrationTestBase {
 
     private final UserService userService;
+    private final UserRepository userRepository;
 
     @Test
     void findAllTest() {
@@ -47,5 +48,18 @@ public class UserServiceImplTest extends IntegrationTestBase {
     @Test
     void findByNameNegativeTest() {
         assertThrows(EntityWithNameExistsException.class, () -> userService.findByNameIgnoreCase("Qwertu"));
+    }
+
+
+    @Test
+    void saveTest() {
+        UserDto actual = userService.save(readUserDtoForSave());
+        userRepository.flush();
+        assertEquals(userDtoForSave(), actual);
+    }
+
+    @Test
+    void saveWithExistsNameTest() {
+        assertThrows(EntityWithNameExistsException.class, () -> userService.save(readUserDto1()));
     }
 }

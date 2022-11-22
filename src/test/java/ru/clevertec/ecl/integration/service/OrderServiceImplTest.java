@@ -30,7 +30,7 @@ public class OrderServiceImplTest extends IntegrationTestBase {
     @Test
     void findAllByUserIdTest() {
         List<OrderDto> actual = orderService.findAllByUserId(3L, pageable());
-        List<OrderDto> expected = Arrays.asList(orderDto3(), orderDto1());
+        List<OrderDto> expected = Arrays.asList(orderDto1(), orderDto3());
         assertEquals(expected, actual);
     }
 

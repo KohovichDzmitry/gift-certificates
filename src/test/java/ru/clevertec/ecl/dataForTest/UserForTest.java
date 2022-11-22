@@ -2,6 +2,7 @@ package ru.clevertec.ecl.dataForTest;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import ru.clevertec.ecl.dto.ReadUserDto;
 import ru.clevertec.ecl.dto.UserDto;
 import ru.clevertec.ecl.entity.User;
 
@@ -13,6 +14,12 @@ public class UserForTest {
     public static User user1() {
         return User.builder()
                 .id(1L)
+                .name("Qwerty")
+                .build();
+    }
+
+    public static User user1WithoutId() {
+        return User.builder()
                 .name("Qwerty")
                 .build();
     }
@@ -38,6 +45,12 @@ public class UserForTest {
                 .build();
     }
 
+    public static ReadUserDto readUserDto1() {
+        return ReadUserDto.builder()
+                .name("Qwerty")
+                .build();
+    }
+
     public static UserDto userDto2() {
         return UserDto.builder()
                 .id(2L)
@@ -49,6 +62,25 @@ public class UserForTest {
         return UserDto.builder()
                 .id(3L)
                 .name("Ronaldo")
+                .build();
+    }
+
+    public static User userForSave() {
+        return User.builder()
+                .name("Messi")
+                .build();
+    }
+
+    public static ReadUserDto readUserDtoForSave() {
+        return ReadUserDto.builder()
+                .name("Messi")
+                .build();
+    }
+
+    public static UserDto userDtoForSave() {
+        return UserDto.builder()
+                .id(4L)
+                .name("Messi")
                 .build();
     }
 
